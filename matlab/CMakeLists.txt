@@ -115,11 +115,12 @@ include_directories("${Matlab_ROOT_DIR}/extern/include")
 add_definitions(-DMATLAB_MEX_FILE)
 
 matlab_add_mex(NAME matlab
-        SRC "${CMAKE_SOURCE_DIR}/matlab/+prost/private/factory.cpp" "${CMAKE_SOURCE_DIR}/matlab/+prost/private/prost.cpp"
+        SRC "${CMAKE_SOURCE_DIR}/matlab/+prost/private/factory.cpp" "${CMAKE_SOURCE_DIR}/matlab/+prost/private/prost.cpp" ${MATLAB_CUSTOM_SOURCES}
         OUTPUT_NAME prost_
         LINK_TO prost ut ${CUDA_LIBRARIES} ${CUDA_cusolver_LIBRARY} ${CUDA_cusparse_LIBRARY} ${CUDA_cublas_LIBRARY}
         )
 
 set_property(TARGET matlab PROPERTY POSITION_INDEPENDENT_CODE False)
 add_dependencies( matlab prost )
+#add_library(matlab ${MATLAB_CUSTOM_SOURCES})
 set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/matlab/+prost/private")

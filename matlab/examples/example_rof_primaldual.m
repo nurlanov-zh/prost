@@ -1,5 +1,7 @@
 %%
 % load input image
+addpath('../')
+
 im = imread('../../images/lion.png');
 im = imresize(im, 1);
 [ny, nx, nc] = size(im);
