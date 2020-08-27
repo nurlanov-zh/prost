@@ -16,7 +16,8 @@ if(MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4244 /wd4267")
 endif()
 
-find_package(MatlabMex REQUIRED)
+find_package(Matlab REQUIRED)
+#find_package(MatlabMex REQUIRED)
 find_package(CUDA REQUIRED)
 
 include_directories("include")
